@@ -14,6 +14,10 @@ const connect = function () {
     console.log("Incoming data:", data);
     // Process the incoming data here if needed
   });
+  conn.on("connect", () => {
+    console.log("Successfully connected to game server");
+    conn.write("Name: bin");
+  });
 
   return conn;
 };
