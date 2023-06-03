@@ -22,5 +22,6 @@ const connect = function () {
     console.error("Error:", err);
     // Your code here...
   });
+  return conn;
 };
 module.exports = { connect };
