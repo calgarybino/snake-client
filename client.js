@@ -10,8 +10,15 @@ const connect = function () {
   conn.setEncoding("utf8");
   conn.on("connect", () => {
     console.log("Connected to server");
+    conn.write("Name:BG");
+  });
+  conn.on("data", (data) => {
+    console.log("Server says:", data);
+  });
+  conn.on("close", () => {
+    console.log("Connection closed");
   });
 
   return conn;
 };
-module.exports={connect};
+module.exports = { connect };
