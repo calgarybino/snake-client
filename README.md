@@ -13,9 +13,9 @@ Before you can run this client, you will need to be running the server side whic
 
 
 ## Getting Started
--Clone the repository: git clone https://github.com/calgarybino/snake-client.git
--Change to the project directory: cd snake-client
--Install dependencies  npm install
-- Run the development snake client using the `node play.js` command.
--To terminate the snake client use Ctrl + C from keyboard.
+* Clone the repository: git clone https://github.com/calgarybino/snake-client.git
+* Change to the project directory: cd snake-client
+* Install dependencies  npm install
+* Run the development snake client using the `node play.js` command.
+* To terminate the snake client use Ctrl + C from keyboard.
 -The keys W, a, s, and d keys are mapped with the strings to be up, left, down and right movement keys.
