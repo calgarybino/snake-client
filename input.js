@@ -1,34 +1,40 @@
+const handleUserInput = function (data) {
+  // your code here
+  switch (data) {
+    case "\u0003": // Ctrl+C
+      process.exit();
+      break;
+    case "w":
+      // Action for the "w" key
+      console.log("Moving up");
+      break;
+    case "a":
+      // Action for the "a" key
+      console.log("Moving left");
+      break;
+    case "s":
+      // Action for the "s" key
+      console.log("Moving down");
+      break;
+    case "d":
+      // Action for the "d" key
+      console.log("Moving right");
+      break;
+    default:
+      // Handle any other key press
+      console.log("Invalid key");
+  }
+};
 let connection;
-
 const setupInput = function (conn) {
   connection = conn;
   const stdin = process.stdin;
   stdin.setRawMode(true);
   stdin.setEncoding("utf8");
   stdin.resume();
-  stdin.on("data", handleUserInput);
+  stdin.on("data", (data) => {
+    handleUserInput(data, connection);
+  });
   return stdin;
 };
-const moves = {
-  w: "Move: up",
-  a: "Move: left",
-  s: "Move: down",
-  d: "Move: right",
-  1: "Say: Hello!",
-  2: "Say: Bino!",
-};
-const handleUserInput = (key) => {
-  console.log(key);
-  if (moves[key]) {
-    connection.write(moves[key]);
-  }
-
-  // Example: Exiting the game on pressing the "Ctrl + C" key combination
-  if (key === "\u0003") {
-    process.exit();
-  }
-};
-
-module.exports = {
-  setupInput,
-};
+module.exports = { setupInput };
