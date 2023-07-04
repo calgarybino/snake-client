@@ -26,15 +26,13 @@ const handleUserInput = function (keypress) {
   } else if (keypress.toLowerCase() in messageMappings) {
     sendCreativeMessage(keypress.toLowerCase());
   }
-
 };
 //Function to send a creative message to the server
-const sendCreativeMessage = function(keypress){
+const sendCreativeMessage = function (keypress) {
   const myMessage = messageMappings[keypress]; //search the message in the mappings object
-  if(myMessage){
-  connection.write(`Say:  ${myMessage}`); // send the message to the server
+  if (myMessage) {
+    connection.write(`Say:${myMessage}`); // send the message to the server
   }
-}
+};
 
-setupInput(); //calling the function
 module.exports = { setupInput };
